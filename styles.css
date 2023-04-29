@@ -1,0 +1,33 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    justify-self: center;
+    gap: 10px;
+    background-color: lightgray;
+    font-family: 'Lato', sans-serif;
+
+} 
+
+ .grid-item {
+    background-color: lightgray;
+    text-align: center;
+    grid-column: 2;
+ 
+ }
+
+ /* .grid-item-1 {
+    grid-column: 2;
+ }
+
+ .grid-item-3 {
+    grid-area: header;
+ }
+
+ .grid-item-4 {
+    grid-area: header;
+ }
+
+ .grid-item-5 {
+    grid-area: header;
+ } */

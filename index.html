@@ -2,22 +2,37 @@
 <html>
     <head>
         <title>Mastermind</title>
-        <link rel="stylesheet" type="text/css">      
+        <link rel="stylesheet" type="text/css" href="styles.css">      
     </head>
 
 
-<body>
-	<h1>Mastermind</h1>
+<body> 
+    <div class = "grid-container">
+        <div class = "grid-item grid-item-1">
+            <h1>Mastermind</h1>
+        </div>
+        <div class = "grid-item grid-item-2">Will you guess the secret code?</div>
+        <div class = "grid-item grid-item-3"><h3>Round#:  <span id="round-num">1</span></h3></div>
+        <div class = "grid-item grid-item-4">
+            <form id="guess-form">
+                <label for="guess">Enter your guess (4 digits between 0 and 7):</label>
+                <input type="text" id="guess" placeholder="Enter your 4-digit guess"/>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class = "grid-item grid-item-5"><p>Well-Placed: <span id="well-placed"></span></p></div>
+        <div class = "grid-item grid-item-5"><p>Misplaced: <span id="mis-placed"></span></p></div>
+
+
+    </div>	
+    
+    <!-- <h1>Mastermind</h1>
    	<p> Will you guess the secret code?</p>
 	<p>The round number is <span id="round-num">1</span></p>
 	<p>Well-Placed: <span id="well-placed"></span></p>
-	<p>Misplaced: <span id="mis-placed"></span></p>
+	<p>Misplaced: <span id="mis-placed"></span></p> -->
 
-	<form id="guess-form">
-		<label for="guess">Enter your guess (4 digits between 0 and 7):</label>
-		<input type="text" id="guess" placeholder="Enter your 4-digit guess"/>
-		<button type="submit">Submit</button>
-	</form>
+	
 
 	<script src="mmind.js"></script>
 
