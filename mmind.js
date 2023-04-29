@@ -131,14 +131,27 @@ function submit_guess(guess) {
         if (well_placed == 4) {
             console.log("You won!")
             you_won = 1;
-            gridFour.classList.add("show-grid-con-4")
-            // gridFour.style.display = "block !important";
-            gridThree.style.display = "none";
-            console.log("133: ", gridThree);
+
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("grid-container-4");
+            newDiv.id = "grid-con-4";
+            const h1 = document.createElement("h1");
+            h1.innerText = "You Won!";
+            newDiv.appendChild(h1);
             
-            console.log("135: ", gridFour);
+            // Add to document
+            const gridTwo = document.querySelector("#grid-con-2");
+            gridTwo.appendChild(newDiv);
+
+
+            // Hide gridThree
+            gridThree.style.display = "none";
+            newDiv.style.display = "block";
+            console.log("133: ", gridThree);
+            console.log("135: ", newDiv.style.display);
             return;
         }
+
         // gridThree.style.display = "block";
         // console.log("139: ", gridThree);
         // gridFour.style.display = "none";
@@ -177,7 +190,6 @@ function play_round() {
 
 // Play the game
 function play_game() {
-    gridFour.style.display = "none !important";
     make_secret()
     secret_counts()
 
