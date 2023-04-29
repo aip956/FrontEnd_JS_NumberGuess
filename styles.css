@@ -4,21 +4,36 @@
     grid-template-rows: auto;
     justify-self: center;
     gap: 10px;
-    background-color: lightgray;
+    background-color: lightblue;
     font-family: 'Lato', sans-serif;
 
 } 
 
  .grid-item {
-    background-color: lightgray;
     text-align: center;
-    grid-column: 2;
- 
+    grid-column: 1 / span 3;
  }
 
- /* .grid-item-1 {
+ .grid-container-2 {
     grid-column: 2;
+    text-align: center;
  }
+
+#grid-con-4 {
+    display: none;
+  }
+
+.show-grid-con-4 {
+    display: block;
+}
+ /* 
+ .grid-item-5 {
+    grid-column: 2 / 3;
+  }
+ .grid-item-6 {
+   grid-column: 3 / 4;
+ }
+
 
  .grid-item-3 {
     grid-area: header;
