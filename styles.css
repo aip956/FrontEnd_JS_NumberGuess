@@ -19,6 +19,27 @@
     text-align: center;
  }
 
+ .grid-container-4 {
+    text-align: center;
+ }
+
+ table {
+    font-size: 14px;
+    font-weight: normal;
+    table-layout: fixed;
+ }
+
+ th {
+    font-size: 12px;
+    font-weight: normal;
+    width: 30%;
+    word-wrap: break-word;
+ }
+
+#oldGuessTable {
+    margin: 0 auto;
+}
+
 /* #grid-con-4 {
     display: none;
   } */

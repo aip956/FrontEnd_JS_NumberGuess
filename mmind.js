@@ -5,8 +5,8 @@ let nonrept_array = [0, 0, 0, 0, 0, 0, 0, 0];
 let secr_count_array = [0, 0, 0, 0, 0, 0, 0, 0];
 let round_num = 1;
 let you_won = 0;
-let max_tries = 10;
-
+let max_tries = 5;
+let oldGuessArr = ['\n'];
 
 ///////////// HTML ELEMENTS /////////////////
 
@@ -17,7 +17,9 @@ const roundElem = document.getElementById("round-num");
 const guessInput = document.getElementById("guess");
 const misPlaced = document.getElementById("mis-placed");
 const wellPlaced = document.getElementById("well-placed");
-// const youWon = document.getElementById("you-won");
+const oldGuessesList = document.getElementById("oldGuessObj");
+const oldGuessTable = document.getElementById("oldGuessTable").getElementsByTagName('tbody')[0];
+const tableBody = document.querySelector("#oldGuessTable tbody")
 
 ///////////// LISTENER /////////////////
 guessForm.addEventListener("submit", function(event) {
@@ -31,10 +33,8 @@ guessForm.addEventListener("submit", function(event) {
 })
 
 
-
 // Make the 4-digit non-repeating secret
 function make_secret() {
-    // Generate 4 characters
     let i = 0;
     while (i < 4) {
         // Prevent repeating numbers
@@ -131,39 +131,43 @@ function submit_guess(guess) {
         if (well_placed == 4) {
             console.log("You won!")
             you_won = 1;
-
+            // Display the winning message
             const newDiv = document.createElement("div");
             newDiv.classList.add("grid-container-4");
             newDiv.id = "grid-con-4";
             const h1 = document.createElement("h1");
             h1.innerText = "You Won!";
             newDiv.appendChild(h1);
-            
             // Add to document
             const gridTwo = document.querySelector("#grid-con-2");
             gridTwo.appendChild(newDiv);
 
-
-            // Hide gridThree
+            // Hide gridThree Round, Form, Misplaced, Well Placed
             gridThree.style.display = "none";
             newDiv.style.display = "block";
             console.log("133: ", gridThree);
             console.log("135: ", newDiv.style.display);
             return;
         }
-
-        // gridThree.style.display = "block";
-        // console.log("139: ", gridThree);
-        // gridFour.style.display = "none";
-        // console.log("141: ", youWon);
         let guess_count_array = guess_counts(guess)
         misplaced = get_misplaced(secr_count_array, guess_count_array, well_placed)
         misPlaced.innerText = misplaced;
         wellPlaced.innerText = well_placed;
 
+        // Add old guess info to table
+        let newRow = document.createElement("tr");
+        let guessCell = document.createElement("td");
+        guessCell.textContent = guess;
+        newRow.appendChild(guessCell);
+        let wellPlacedCell = document.createElement("td");
+        wellPlacedCell.textContent = well_placed;
+        newRow.appendChild(wellPlacedCell);
+        let misplacedCell = document.createElement("td");
+        misplacedCell.textContent = misplaced;
+        newRow.appendChild(misplacedCell);
+        tableBody.appendChild(newRow);
     }
 }
-
 
 // Play a game round
 function play_round() {
@@ -182,16 +186,36 @@ function play_round() {
         console.log("141You_won: ", you_won);
         guessInput.value = null // or ""
     }
-    if (round_num > max_tries) {
-        console.log("Sorry, too many tries. The code was ", secret)
-    }
 
+    if (round_num > max_tries) {
+        // Display the losing message
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("grid-container-4");
+        newDiv.id = "grid-con-4";
+        const h1 = document.createElement("h1");
+        h1.innerText = `Sorry, too many tries. The code was ${secret}`;
+        newDiv.appendChild(h1);
+        // Add to document
+        const gridTwo = document.querySelector("#grid-con-2");
+        gridTwo.appendChild(newDiv);
+
+        // Hide gridThree Round, Form, Misplaced, Well Placed
+        gridThree.style.display = "none";
+        newDiv.style.display = "block";
+        console.log("133: ", gridThree);
+        console.log("135: ", newDiv.style.display);
+
+
+
+
+
+        console.log("Sorry, too many tries. The code was ${secret}", secret)
+    }
 }
 
 // Play the game
 function play_game() {
     make_secret()
     secret_counts()
-
     play_round()
 }
