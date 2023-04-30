@@ -11,7 +11,7 @@ let oldGuessArr = ['\n'];
 ///////////// HTML ELEMENTS /////////////////
 
 const gridThree = document.getElementById("grid-con-3");
-const gridFour = document.getElementById("grid-con-4");
+const gridFive = document.getElementById("grid-con-5");
 const guessForm = document.getElementById("guess-form");
 const roundElem = document.getElementById("round-num");
 const guessInput = document.getElementById("guess");
@@ -20,6 +20,8 @@ const wellPlaced = document.getElementById("well-placed");
 const oldGuessesList = document.getElementById("oldGuessObj");
 const oldGuessTable = document.getElementById("oldGuessTable").getElementsByTagName('tbody')[0];
 const tableBody = document.querySelector("#oldGuessTable tbody")
+
+
 
 ///////////// LISTENER /////////////////
 guessForm.addEventListener("submit", function(event) {
@@ -64,6 +66,7 @@ function validate_guess(guess) {
     if (guess.length != 4) {
         console.log("42guslen: ", guess.length);
         console.log("42Invalid; enter 4 digits");
+     
         return guess_valid = 0
     }
     for (i = 0; i < 4; i++) {
@@ -120,12 +123,18 @@ function get_misplaced(secr_count_array, guess_count_array, well_placed) {
 }
 
 function submit_guess(guess) {
+    
     let is_val_guess = validate_guess(guess);
+    const invalidGuess = document.getElementById("guess-invalid");
     if (is_val_guess != 1) {
+        
         console.log("Wrong input! Guess needs to be 4 numbers between 0 - 7")
+           // Create error message
+        invalidGuess.innerText = "Guess needs to be 4 numbers";
     }
     else {
         console.log("115Guess Valid")
+        invalidGuess.innerText = "";
         well_placed = get_well_placed(guess)
 
         if (well_placed == 4) {
@@ -133,8 +142,8 @@ function submit_guess(guess) {
             you_won = 1;
             // Display the winning message
             const newDiv = document.createElement("div");
-            newDiv.classList.add("grid-container-4");
-            newDiv.id = "grid-con-4";
+            newDiv.classList.add("grid-container-5");
+            newDiv.id = "grid-con-5";
             const h1 = document.createElement("h1");
             h1.innerText = "You Won!";
             newDiv.appendChild(h1);
@@ -204,11 +213,6 @@ function play_round() {
         newDiv.style.display = "block";
         console.log("133: ", gridThree);
         console.log("135: ", newDiv.style.display);
-
-
-
-
-
         console.log("Sorry, too many tries. The code was ${secret}", secret)
     }
 }
