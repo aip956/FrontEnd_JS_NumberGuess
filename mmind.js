@@ -10,8 +10,8 @@ let oldGuessArr = ['\n'];
 
 ///////////// HTML ELEMENTS /////////////////
 
-const gridThree = document.getElementById("grid-con-3");
-const gridFive = document.getElementById("grid-con-5");
+
+// const gridFive = document.getElementById("grid-con-5");
 const guessForm = document.getElementById("guess-form");
 const roundElem = document.getElementById("round-num");
 const guessInput = document.getElementById("guess");
@@ -66,7 +66,6 @@ function validate_guess(guess) {
     if (guess.length != 4) {
         console.log("42guslen: ", guess.length);
         console.log("42Invalid; enter 4 digits");
-     
         return guess_valid = 0
     }
     for (i = 0; i < 4; i++) {
@@ -145,17 +144,17 @@ function submit_guess(guess) {
             newDiv.classList.add("grid-container-5");
             newDiv.id = "grid-con-5";
             const h1 = document.createElement("h1");
-            h1.innerText = "You Won!";
+            h1.innerText = "Yay, you won!";
             newDiv.appendChild(h1);
             // Add to document
             const gridTwo = document.querySelector("#grid-con-2");
             gridTwo.appendChild(newDiv);
-
             // Hide gridThree Round, Form, Misplaced, Well Placed
+            const gridThree = document.getElementById("grid-con-3");
             gridThree.style.display = "none";
             newDiv.style.display = "block";
-            console.log("133: ", gridThree);
-            console.log("135: ", newDiv.style.display);
+            // console.log("133: ", gridThree);
+            // console.log("135: ", newDiv.style.display);
             return;
         }
         let guess_count_array = guess_counts(guess)
@@ -209,6 +208,7 @@ function play_round() {
         gridTwo.appendChild(newDiv);
 
         // Hide gridThree Round, Form, Misplaced, Well Placed
+        const gridThree = document.getElementById("grid-con-3");
         gridThree.style.display = "none";
         newDiv.style.display = "block";
         console.log("133: ", gridThree);

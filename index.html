@@ -5,56 +5,51 @@
         <link rel="stylesheet" type="text/css" href="styles.css">      
     </head>
 
-
-<body> 
-    <div class = "grid-container">
-        <div class = "grid-item grid-item-1">
-            <h1>Mastermind</h1>
-        </div>
-        <div class = "grid-item grid-item-2">Will you guess the secret code?</div>
-        <div class = "grid-container-2" id="grid-con-2">
-            <div class = "grid-container-3" id="grid-con-3">
-                <div class = "grid-item grid-item-3"><h3>Round#:  <span id="round-num">1</span></h3></div>
-                <div class = "grid-item grid-item-4"><h3><span id="guess-invalid"></h3></div>
-                    
-                </span></h3></div>
-                <div class = "grid-item grid-item-4">
-                    <form id="guess-form">
-                        <label for="guess">Enter your guess (4 digits between 0 and 7):</label>
-                        <input type="text" id="guess" placeholder="Enter your 4-digit guess"/>
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
-                <div class = "grid-item grid-item-5"><p>Well-Placed: <span id="well-placed"></span></p></div>
-                <div class = "grid-item grid-item-6"><p>Misplaced: <span id="mis-placed"></span></p></div>
+    <body> 
+        <div class = "grid-container">
+            <div class = "grid-item grid-item-1">
+                <h1>Mastermind</h1>
+                <div class = "grid-item grid-item-2">Will you guess the secret code?</div>
             </div>
-        
+            
 
-        <div class = "grid-container-6">
-            <h4>Guesses List: <span id="oldGuessTable"></span></h4>
-            <table id="oldGuessTable">
-                <thead>
-                    <tr>
-                        <th>Guess</th>
-                        <th>Well-Placed</th>
-                        <th>Mis-placed</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
-        
-        <!-- <div class = "grid-item grid-item-3"><h3>Round#:  <span id="round-num">1</span></h3></div> -->
-    </div>	
-
- 
+            <div class = "grid-container-2" id="grid-con-2">
+                <div class = "grid-container-3" id="grid-con-3">
+                    <div class = "grid-item grid-item-3"><h3>Round#:  <span id="round-num">1</span></h3></div>
+                    <div class = "grid-item grid-item-5"><h3><span id="guess-invalid"></span></h3></div>
+                    <div class = "grid-item grid-item-4">
+                        <form id="guess-form">
+                            <label for="guess">Enter your guess (4 digits between 0 and 7):</label>
+                            <input type="text" id="guess" placeholder="Enter your 4-digit guess"/>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <div class = "grid-item grid-item-5"><p>Well-Placed: <span id="well-placed"></span></p></div>
+                    <div class = "grid-item grid-item-6"><p>Mis-Placed: <span id="mis-placed"></span></p></div>
+                </div>
+                
+                <div class = "grid-container-6">
+                    <h4>Guesses List: <span id="oldGuessTable"></span></h4>
+                    <table id="oldGuessTable">
+                        <thead>
+                            <tr>
+                                <th>Guess</th>
+                                <th>Well-Placed</th>
+                                <th>Mis-Placed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
     
-	<script src="mmind.js"></script>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+            
+        </div>
 
-</body>
+
+        <script src="mmind.js"></script>
+
+    </body>
 </html>
