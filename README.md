@@ -1,7 +1,15 @@
 Welcome to My Mastermind
 
-Task
-This is a Javascript/HTML/CSS implementation of the Mastermind number guessing game. There is one player against the program.
+Team: Anthea Ip
+Problem: Create an application to showcase HTML and CSS. I created this Mastermind app in Javascript, and added a front end with HTML and CSS. 
+
+There is one player against the program. I considered how a user might play the game; they would want to be able to:
+
+View the round number
+Enter their guess
+View the Well-Placed and Mis-Placed pieces
+View the history of their guesses and outcomes
+View whether they won, or exceeded their number of tries.
 
 The secret is composed of 4 unique numbers out of 8 total (0 -7).
 
@@ -39,4 +47,11 @@ HTML:
 I created a grid layout. All the elements are in one grid-container. The fields that update based on the input guess (Round, Input Form, Well-Placed and Mis-Placed pieces) are in a grid-container that displayes to 'none' when the game is won or tries exceeded. The guess history list is in a separate div.
 
 
+<img src="./ScreenCaps/Opening.png"> alt="Opening Page" title="Opening Page">
 
+
+
+
+Future Features
+Add color coding to the history of guesses indicating which pieces are Well-Placed vs. Mis-Placed.
+Add "

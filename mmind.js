@@ -17,7 +17,7 @@ const roundElem = document.getElementById("round-num");
 const guessInput = document.getElementById("guess");
 const misPlaced = document.getElementById("mis-placed");
 const wellPlaced = document.getElementById("well-placed");
-const oldGuessesList = document.getElementById("oldGuessObj");
+// const oldGuessesList = document.getElementById("oldGuessObj");
 const oldGuessTable = document.getElementById("oldGuessTable").getElementsByTagName('tbody')[0];
 const tableBody = document.querySelector("#oldGuessTable tbody")
 
