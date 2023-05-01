@@ -14,8 +14,6 @@ const roundElem = document.getElementById("round-num");
 const guessInput = document.getElementById("guess");
 const misPlaced = document.getElementById("mis-placed");
 const wellPlaced = document.getElementById("well-placed");
-// const oldGuessesList = document.getElementById("oldGuessObj");
-// const oldGuessTable = document.getElementById("oldGuessTable").getElementsByTagName('tbody')[0];
 const tableBody = document.querySelector("#oldGuessTable tbody")
 
 
@@ -152,8 +150,6 @@ function submit_guess(guess) {
             newDiv.style.display = "block";
             const gridSix = document.getElementById("grid-con-6");
             gridSix.style.display = "none";
-            // console.log("133: ", gridThree);
-            // console.log("135: ", newDiv.style.display);
             return;
         }
         let guess_count_array = guess_counts(guess)
