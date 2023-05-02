@@ -11,11 +11,11 @@ The secret is composed of 4 unique numbers out of 8 total (0 -7).
 
 The player has by default 10 tries to guess the secret. After each guess, the program will indicate the results (number of correctly placed pieces, Well-Placed, and incorrectly placed pieces, Mis-Placed). 
 
-Example: 
-Secret: "0123"
-Guess: "3021"
-Well-Placed: 1 (2 is in the correct place)
-Mis-Placed: 3 (0, 1, and 3 are in the secret, but in the wrong place)
+- Example: 
+    - Secret: "0123"
+    - Guess: "3021"
+    - Well-Placed: 1 (2 is in the correct place)
+    - Mis-Placed: 3 (0, 1, and 3 are in the secret, but in the wrong place)
     </br>
     
 ## Who Worked on the Project?
@@ -40,10 +40,17 @@ The user is the game player, and there is one player against the program. I cons
 3. Create the CSS styling
 
 
-- Create the JS file: I first created the javascript logic and ran in node to confirm the output, errors, messages.
+Javascript Requirements:
+- Create a secret
+- Input a guess
+- Check validity of guess
+- Output round number, well-placed, mis-placed pieces
+- Indicate if user wins
+- Indicate if user does not win
 
-- Frontend Requirements:
-- Overall structure. I wanted to be able to explain my project, so I decided to use plain JS rather than a framework.
+
+Frontend Requirements:
+- Overall structure. I needed to be able to explain my project and weigh simplicity vs. capability. This project seemed relatively simple (in terms of considering a framework).
 
 - Input fields and output.
    
@@ -78,6 +85,7 @@ The user is the game player, and there is one player against the program. I cons
 
 ## Creating the Frontend / Implementation
  Javascript Implementation:
+ I first created the javascript logic and ran in node to confirm the output, errors, messages.
  - This program will randomly generate the 4-unique digit secret. It will check if the input is valid (4 numbers), and will give an error if not. The previous guesses and results will be displayed in a table. There will be a message if the player guesses the secret, as well as if the player exceeds the number of tries.
 
 - The secret is set at 4 digits for simplicity. 
@@ -96,13 +104,13 @@ The user is the game player, and there is one player against the program. I cons
             - Too many guesses message
 
 HTML Implementation:
-
+- I wanted to be able to keep the implementation simple and explain my work, so I decided to use plain JS rather than a framework.
 - Start the game: I added an event listener to, based on the round number, either start the game or play a round. This simplifies the layout (no need for separate start and submit buttons).
 
 - Guess input / See results: I added DOM element variables in my JS that would either grab input or inject the values into the HTML and therefore be viewable. For example,
     - const guessInput = document.getElementById("guess"); </br>
     </br>
-- My implementation of the event listener and DOM manipulation was not proceeding as I had hoped. I contacted my former classmate who loves to make games, to get insight and unstick. We also brainstormed on the usability (guess history), and player "hints" (future feature to color-code the results).
+- As I was trying to implement the event listener and DOM manipulation was not proceeding as I had hoped. I contacted my former classmate who loves to make games, to get insight and unstick. We also brainstormed on the usability (guess history), and player "hints" (future feature to color-code the results).
 
 - Invalid Guess: If a user inputs a guess of incorrect length or characters, they should see an error, but still be able to input an alternative guess. I simply have a DOM element for an error that is empty when guess is valid, and contains an error message if the guess is not valid.
 
