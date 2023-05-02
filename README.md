@@ -4,6 +4,7 @@
 I'm an aspiring software engineer. I started my career as a semiconductor engineer where I worked on a team and with our customers to release our technology. I then got a life-changing opportunity to be a recruiter. In my recruiting role, I got a great opportunity to be part of a team to rebuild our recruiting process. I got to do more brainstorming, troubleshooting, and work with our engineers and engineering leadership more. Then it struck me . . . I really missed being part of a team that builds a product. Which brought me to coding. 
 
 I self-learned a little, then completed General Assembly's Software Engineering Program. I felt like I just grazed the surface on learning to code, so I enrolled in software engineering school Qwasar to continue to build my skills. I love it so much that I became a teaching assistant to help my classmates grow their skills.
+    </br>
 
 ## Game Background
 The secret is composed of 4 unique numbers out of 8 total (0 -7).
@@ -15,13 +16,14 @@ Secret: "0123"
 Guess: "3021"
 Well-Placed: 1 (2 is in the correct place)
 Mis-Placed: 3 (0, 1, and 3 are in the secret, but in the wrong place)
-
+    </br>
+    
 ## Who Worked on the Project?
 This is mostly a sole project. However, I did seek advice from a former classmate on event listeners, DOM variables and manipulation, and usability. (He's passionate about creating games.) I also got advice and feedback from a startup frontend engineer.
-
+    </br>
 ## Problem I'm Solving
 I needed to create an application to showcase HTML and CSS. I had previously created a C-language Mastermind project. I felt the game's player interaction would be a great project to add a frontend. I created this Mastermind app in Javascript, and added a frontend with HTML and CSS. 
-
+    </br>
 ## User I'm Trying to Solve Problems for
 The user is the game player, and there is one player against the program. I considered how a user might play the game; they would want to be able to:
 1. View the round number
@@ -30,8 +32,7 @@ The user is the game player, and there is one player against the program. I cons
 4. View any input errors
 5. View the history of their guesses and outcomes
 6. View whether they won, or exceeded their number of tries.
-
-
+    </br>
 
 ## Design Process / Requirements
 1. Create the JS file
@@ -41,10 +42,10 @@ The user is the game player, and there is one player against the program. I cons
 
 - Create the JS file: I first created the javascript logic and ran in node to confirm the output, errors, messages.
 
-- To create the frontend, 
-I thought about the overall structure. I wanted to be able to explain my project, so I decided to use plain JS rather than a framework.
+- Frontend Requirements:
+- Overall structure. I wanted to be able to explain my project, so I decided to use plain JS rather than a framework.
 
-- I thought about the input fields and output.
+- Input fields and output.
    
     - Start the game: In node, the user types 'node mmind.js' in the terminal. I needed my HTML to be able to start the game.
         - Ideally, I thought it would be simpler for the user to add their guess and this would start the game instead of a separate start and submit buttons.
@@ -52,39 +53,37 @@ I thought about the overall structure. I wanted to be able to explain my project
     - The user would need to input their guess, and then need to be able to see the results (round number, well-placed, and mis-placed numbers). 
         - Guess input and results output: My html would need to access the user's guess, and then access the JS variables and display them as the results
 
-
-
-    - See results: 
-    
-    - I thought it would be useful to see the history of guesses, but did not implement this initially. 
-
     - The user would need to see an error if their guess was not valid (4 digits), and still be able to access the guess form
 
     - The user would need to see if they won (and ideally not be able to enter another guess)
 
     - The user would need to see if they exhausted all of their tries (game end)
 
-- To create the styling, I thought about
+    - I thought it would be useful to see the history of guesses, but did not implement this initially. 
 
-    - In my manager interview, we discussed flex-boxes and grid layout. This inspired me to try a grid layout.
-        - See grid wireframe below
+- Styling requirements
+    - I wanted the text to be centered, but not take the full view width  
 
     - The "Mastermind" and "Will you guess the secret code?" lines are static over the course of the game, while the results fields will be dynamic. 
 
+    - While the win message displays, the input/results and guess history fields hide
+
+    - While the lose message displayes, the input/results fields hide
+
     - The guess history should be separate from the input and results field (not the main focus)
 
+    </br>
 
 
-    
 
 ## Creating the Frontend / Implementation
- Javascript:
+ Javascript Implementation:
  - This program will randomly generate the 4-unique digit secret. It will check if the input is valid (4 numbers), and will give an error if not. The previous guesses and results will be displayed in a table. There will be a message if the player guesses the secret, as well as if the player exceeds the number of tries.
 
 - The secret is set at 4 digits for simplicity. 
 - The maximum tries typically defaults to 10, but for ease-of-testing and demonstration, I've set it to 5.
 - Functions in JS:
-    Play game
+    - Play game
         - Make secret
         - Make secret counts
         - Play round
@@ -96,7 +95,7 @@ I thought about the overall structure. I wanted to be able to explain my project
                 - Get mis-placed number
             - Too many guesses message
 
-HTML:
+HTML Implementation:
 
 - Start the game: I added an event listener to, based on the round number, either start the game or play a round. This simplifies the layout (no need for separate start and submit buttons).
 
@@ -117,8 +116,10 @@ HTML:
 
 
 
-Styling:
-I wanted the text to be centered, but not take the full view width. 
+Styling Implementation:
+- In my manager interview, we discussed flex-boxes and grid layout. This inspired me to try a grid layout.
+    - See grid wireframe below
+
 - Grid container consumes the view height and width. 
     - It's split into three columns, with the middle column being twice as wide as the ends (1fr 2fr 1fr).
 
