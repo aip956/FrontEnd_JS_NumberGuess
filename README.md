@@ -35,8 +35,8 @@ The user is the game player, and there is one player against the program. I cons
 
 ## Design Process / Requirements
 1. Create the JS file
-2. Create the frontend
-3. Create the styling
+2. Create the HTML frontend
+3. Create the CSS styling
 
 
 - Create the JS file: I first created the javascript logic and ran in node to confirm the output, errors, messages.
@@ -44,18 +44,19 @@ The user is the game player, and there is one player against the program. I cons
 - To create the frontend, 
 I thought about the overall structure. I wanted to be able to explain my project, so I decided to use plain JS rather than a framework.
 
-I thought about the input fields and output.
-   - Start the game: In node, the user types 'node mmind.js'. I needed my HTML to be able to start the game.
-
+- I thought about the input fields and output.
+   
     - Start the game: In node, the user types 'node mmind.js' in the terminal. I needed my HTML to be able to start the game.
+        - Ideally, I thought it would be simpler for the user to add their guess and this would start the game instead of a separate start and submit buttons.
     
     - The user would need to input their guess, and then need to be able to see the results (round number, well-placed, and mis-placed numbers). 
+        - Guess input and results output: My html would need to access the user's guess, and then access the JS variables and display them as the results
 
-    - Guess input: My html would need to access the user's guess. Ideally, I thought it would be simpler for the user to add their guess and this would start the game instead of a separate start button.
 
-    - See results: The HTML would need to access the JS variables and display them as the results
+
+    - See results: 
     
-    - I thought it would be useful to see the history of guesses, but did not implement this initially. (See section at end for future features.)
+    - I thought it would be useful to see the history of guesses, but did not implement this initially. 
 
     - The user would need to see an error if their guess was not valid (4 digits), and still be able to access the guess form
 
@@ -64,7 +65,9 @@ I thought about the input fields and output.
     - The user would need to see if they exhausted all of their tries (game end)
 
 - To create the styling, I thought about
+
     - In my manager interview, we discussed flex-boxes and grid layout. This inspired me to try a grid layout.
+        - See grid wireframe below
 
     - The "Mastermind" and "Will you guess the secret code?" lines are static over the course of the game, while the results fields will be dynamic. 
 
@@ -76,7 +79,7 @@ I thought about the input fields and output.
 
 ## Creating the Frontend / Implementation
  Javascript:
- - This program will randomly generate the 4-unique digit secret. It will check if the input is valid (4 numbers), and will give an error if not. The previous guesses and results will be displayed in a table to the right. There will be a message if the player guesses the secret, as well as if the player exceeds the number of tries.
+ - This program will randomly generate the 4-unique digit secret. It will check if the input is valid (4 numbers), and will give an error if not. The previous guesses and results will be displayed in a table. There will be a message if the player guesses the secret, as well as if the player exceeds the number of tries.
 
 - The secret is set at 4 digits for simplicity. 
 - The maximum tries typically defaults to 10, but for ease-of-testing and demonstration, I've set it to 5.
@@ -107,7 +110,7 @@ HTML:
 
 - You Won: If the user wins, they should see a large "You Won!" type of message. The input form and results are no longer relevant, so I create a div in the JS when the user guesses the secret, and switch the input and results field view off (display: "none")
 
-- Too Many Tries: If the user exhausts their tries, they should see a large message. The input form is no longer relevant, but they might want to compare their guesses to the secret. I created a div in the JS that displays the message and secret, and switch the input,results, and guess history fields view off (display: "none")
+- Too Many Tries: If the user exhausts their tries, they should see a large message. The input form is no longer relevant, but they might want to compare their guesses to the secret. I created a div in the JS that displays the message and secret, and switch the input and results fields view off (display: "none")
 
 
 - Guess History: I initially created an array and pushed new guesses into the guess history array. But then I thought it would be useful to have the results in addition to the guesses. I achieved this by creating a table template in the HTML, and appending a new row with guess, well-placed, and mis-placed results for each guess.
@@ -167,6 +170,16 @@ title="Exceeded Tries Message"
 style="display: block; margin: 0 auto; max-width: 200px">
 </br>
 </br>
+
+- Grid Wireframe
+<img 
+src="./ScreenCaps/Wireframe.png" 
+alt="Grid Wireframe" 
+title="Grid Wireframe"
+style="display: block; margin: 0 auto; max-width: 200px">
+</br>
+</br>
+
 
 ## Future Features
 This was a fun project! I'd love to build on it and add more features:
