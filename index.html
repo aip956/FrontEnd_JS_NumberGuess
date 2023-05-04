@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Mastermind</title>
         <link rel="stylesheet" type="text/css" href="styles.css">      
@@ -15,27 +15,29 @@
 
             <div class = "grid-container-2" id="grid-con-2">
                 <div class = "grid-container-3" id="grid-con-3">
-                    <div class = "grid-item grid-item-3"><h3>Round#:  <span id="round-num">1</span></h3></div>
-                    <div class = "grid-item grid-item-5"><h3><span id="guess-invalid"></span></h3></div>
+                    <div class = "grid-item grid-item-5"><h3><span id="guess-invalid"  aria-live="assertive
+                        "></span></h3></div>
                     <div class = "grid-item grid-item-4">
                         <form id="guess-form">
                             <label for="guess">Enter your guess (4 digits between 0 and 7):</label>
-                            <input type="text" id="guess" placeholder="Enter your 4-digit guess"/>
+                            <input type="text" id="guess" aria-label="Enter your 4-digit guess" required aria-describedby="guess"/>
                             <button type="submit">Submit</button>
                         </form>
                     </div>
-                    <div class = "grid-item grid-item-5"><p>Well-Placed: <span id="well-placed"></span></p></div>
-                    <div class = "grid-item grid-item-6"><p>Mis-Placed: <span id="mis-placed"></span></p></div>
+                    <div class = "grid-item grid-item-5"><p><span id="well-placed" aria-live="polite"></span></p></div>
+                    <div class = "grid-item grid-item-6"><p><span id="mis-placed"aria-live="polite"></span></p></div>
+                    <div class = "grid-item grid-item-3"><h3>Round#:  <span id="round-num" aria-live="polite">1</span></h3></div>
+
                 </div>
                 
                 <div class = "grid-container-6" id="grid-con-6">
                     <h4>Guesses List: <span id="oldGuessTable"></span></h4>
-                    <table id="oldGuessTable">
+                    <table id="oldGuessTable" aria-describedby="oldGuessTable">
                         <thead>
                             <tr>
-                                <th>Guess</th>
-                                <th>Well-Placed</th>
-                                <th>Mis-Placed</th>
+                                <th scope="col">Guess</th>
+                                <th scope="col">Well-Placed</th>
+                                <th scope="col">Mis-Placed</th>
                             </tr>
                         </thead>
                         <tbody>

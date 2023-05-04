@@ -124,7 +124,7 @@ function submit_guess(guess) {
         
         console.log("Wrong input! Guess needs to be 4 numbers between 0 - 7")
            // Create error message
-        invalidGuess.innerText = "Guess needs to be 4 numbers";
+        invalidGuess.innerText = "Guess needs to be 4 numbers between 0 to 7";
     }
     else {
         console.log("115Guess Valid")
@@ -140,6 +140,7 @@ function submit_guess(guess) {
             newDiv.id = "grid-con-5";
             const h1 = document.createElement("h1");
             h1.innerText = "Yay, you won!";
+            h1.setAttribute("aria-live", "assertive");
             newDiv.appendChild(h1);
             // Add to document
             const gridTwo = document.querySelector("#grid-con-2");
@@ -154,8 +155,12 @@ function submit_guess(guess) {
         }
         let guess_count_array = guess_counts(guess)
         misplaced = get_misplaced(secr_count_array, guess_count_array, well_placed)
-        misPlaced.innerText = misplaced;
-        wellPlaced.innerText = well_placed;
+        misPlaced.textContent = `Mis-Placed equals ${misplaced}`;
+        misPlaced.setAttribute = ("aria-label", `Mis-Placed equals ${misplaced}`);
+        // misPlaced.innerText = misplaced;
+        wellPlaced.textContent = `Well-Placed equals ${well_placed}`;
+        wellPlaced.setAttribute = ("aria-label", `Well-Placed equals ${well_placed}`);
+
 
         // Add old guess info to table
         let newRow = document.createElement("tr");
@@ -197,6 +202,7 @@ function play_round() {
         newDiv.id = "grid-con-4";
         const h1 = document.createElement("h1");
         h1.innerText = `Sorry, too many tries. The code was ${secret}`;
+        h1.setAttribute("aria-live", "assertive");
         newDiv.appendChild(h1);
         // Add to document
         const gridTwo = document.querySelector("#grid-con-2");

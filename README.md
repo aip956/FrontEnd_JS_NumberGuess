@@ -32,6 +32,13 @@ The user is the game player, and there is one player against the program. I cons
 4. View any input errors
 5. View the history of their guesses and outcomes
 6. View whether they won, or exceeded their number of tries.
+
+I later realized I should have considered accessibility as a requirement.
+
+
+7. The user should be able to hear the HTML elements.
+8. The user should be able to hear their guess, and the outcome results.
+9. The user should be able to hear if they won or lost.
     </br>
 
 ## Design Process / Requirements
@@ -47,10 +54,13 @@ Javascript Requirements:
 - Output round number, well-placed, mis-placed pieces
 - Indicate if user wins
 - Indicate if user does not win
+- Added later: Support screen reader
 
 
 Frontend Requirements:
 - Overall structure. I needed to be able to explain my project and weigh simplicity vs. capability. This project seemed relatively simple (in terms of considering a framework).
+
+- Added later: Support screen reader
 
 - Input fields and output.
    
@@ -59,12 +69,16 @@ Frontend Requirements:
     
     - The user would need to input their guess, and then need to be able to see the results (round number, well-placed, and mis-placed numbers). 
         - Guess input and results output: My html would need to access the user's guess, and then access the JS variables and display them as the results
+        - HTML would need to read out the guess and output
 
     - The user would need to see an error if their guess was not valid (4 digits), and still be able to access the guess form
+        - Screen reader would need to read out error
 
     - The user would need to see if they won (and ideally not be able to enter another guess)
+        - Screen reader would need to indicate if they won
 
     - The user would need to see if they exhausted all of their tries (game end)
+        - Screen reader would need to indicate if they lost
 
     - I thought it would be useful to see the history of guesses, but did not implement this initially. 
 
@@ -110,17 +124,23 @@ HTML Implementation:
 - Guess input / See results: I added DOM element variables in my JS that would either grab input or inject the values into the HTML and therefore be viewable. For example,
     - const guessInput = document.getElementById("guess"); </br>
     </br>
+    - I added aria attributes to support the screen reader
+
 - As I was trying to implement the event listener and DOM manipulation was not proceeding as I had hoped. I contacted my former classmate who loves to make games, to get insight and unstick. We also brainstormed on the usability (guess history), and player "hints" (future feature to color-code the results).
 
 - Invalid Guess: If a user inputs a guess of incorrect length or characters, they should see an error, but still be able to input an alternative guess. I simply have a DOM element for an error that is empty when guess is valid, and contains an error message if the guess is not valid.
+    - Added screen reader support (aria-live attribute)
 
 
 - You Won: If the user wins, they should see a large "You Won!" type of message. The input form and results are no longer relevant, so I create a div in the JS when the user guesses the secret, and switch the input and results field view off (display: "none")
+    - Since the message is in JS and not in HTML, I set the textContent and setAttribute in JS.
 
 - Too Many Tries: If the user exhausts their tries, they should see a large message. The input form is no longer relevant, but they might want to compare their guesses to the secret. I created a div in the JS that displays the message and secret, and switch the input and results fields view off (display: "none")
+    - Since the message is in JS and not in HTML, I set the textContent and setAttribute in JS.
 
 
 - Guess History: I initially created an array and pushed new guesses into the guess history array. But then I thought it would be useful to have the results in addition to the guesses. I achieved this by creating a table template in the HTML, and appending a new row with guess, well-placed, and mis-placed results for each guess.
+    - Used "aria-describedby" to support the screen reader for the table.
 
 
 
