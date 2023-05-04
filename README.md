@@ -216,7 +216,7 @@ style="display: block; margin: 0 auto; max-width: 200px">
 ## Future Features
 This was a fun project! I'd love to build on it and add more features:
 - Add color coding to the history of guesses indicating which pieces are Well-Placed vs. Mis-Placed.
-- Add remaining number of rounds
+- Improve accessibility implementation
 - Add a tutorial / guided walk-through
 - Add button to start another game after winning/losing
 - Multiplayer
