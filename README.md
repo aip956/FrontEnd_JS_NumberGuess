@@ -38,6 +38,7 @@ The user is the game player, and there is one player against the program. I cons
 
     </br>
  </br>
+ 
 ## Design Process / Requirements
 
 1. JS file
