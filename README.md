@@ -5,7 +5,7 @@ I'm an aspiring software engineer. I started my career as a semiconductor engine
 
 I self-learned a little, then completed General Assembly's Software Engineering Program. I felt like I just grazed the surface on learning to code, so I enrolled in software engineering school Qwasar to continue to build my skills. I love it so much that I became a teaching assistant to help my classmates grow their skills.
     </br>
-
+ </br>
 ## Game Background
 The secret is composed of 4 unique numbers out of 8 total (0 -7).
 
@@ -17,13 +17,15 @@ The player has by default 10 tries to guess the secret. After each guess, the pr
     - Well-Placed: 1 (2 is in the correct place)
     - Mis-Placed: 3 (0, 1, and 3 are in the secret, but in the wrong place)
     </br>
-    
+     </br>
 ## Who Worked on the Project?
 This is mostly a sole project. However, I did seek advice from a former classmate on event listeners, DOM variables and manipulation, and usability. (He's passionate about creating games.) I also got advice and feedback from a startup frontend engineer.
+    </br> 
     </br>
 ## Problem I'm Solving
 I needed to create an application to showcase HTML and CSS. I had previously created a C-language Mastermind project. I felt the game's player interaction would be a great project to add a frontend. I created this Mastermind app in Javascript, and added a frontend with HTML and CSS. 
     </br>
+     </br>
 ## User Requirements
 The user is the game player, and there is one player against the program. I considered how a user might play the game; they would want to be able to:
 1. View the round number
@@ -31,15 +33,13 @@ The user is the game player, and there is one player against the program. I cons
 3. View the results (Well-Placed and Mis-Placed pieces)
 4. View any input errors
 5. View whether they won, or exceeded their number of tries.
-6. I later added the userView the history of their guesses and outcomes
-
+6. I later added the user would want to view the history of their guesses and outcomes
 7. I later realized I should have considered the user might require accessibility.
 
-
-
     </br>
-
+ </br>
 ## Design Process / Requirements
+
 1. JS file
 2. HTML frontend
 3. CSS styling
@@ -52,9 +52,10 @@ Javascript Requirements:
 - Output round number, well-placed, mis-placed pieces
 - Indicate if user wins
 - Indicate if user does not win
+- Added later: guess history view
 - Added later: Support screen reader
-
-
+ </br>
+ </br>
 Frontend Requirements:
 - Overall structure. I needed to be able to explain my project and weigh simplicity vs. capability. This project seemed relatively simple (in terms of considering a framework).
 
@@ -77,7 +78,9 @@ Frontend Requirements:
     - The HTML would need to see if they exhausted all of their tries (game end)
         - Screen reader would need to indicate if they lost
 
-    - I thought it would be useful to see the history of guesses, but did not implement this initially. 
+    - Added later: HTML would need to display the guess history table
+ </br>
+    </br>
 
 - Styling requirements
     - I wanted the text to be centered, but not take the full view width  
@@ -88,16 +91,14 @@ Frontend Requirements:
 
     - While the lose message displayes, the input/results fields hide
 
-    - The guess history should be separate from the input and results field (not the main focus)
+    - The guess history displays upon losing message, so should be separate from the input and results field
 
     </br>
-
+ </br>
 
 
 ## Creating the Frontend / Implementation
  Javascript Implementation:
- I first created the javascript logic and ran in node to confirm the output, errors, messages.
-
 - The secret is set at 4 digits for simplicity. 
 - The maximum tries typically defaults to 10, but for ease-of-testing and demonstration, I've set it to 5.
 - Functions in JS:
@@ -112,6 +113,10 @@ Frontend Requirements:
                     - Display player won
                 - Get mis-placed number
             - Too many guesses message
+
+ I created the javascript logic and ran in node to confirm the output, errors, messages.
+ </br>
+  </br>
 
 HTML Implementation:
 - I wanted to be able to keep the implementation simple and explain my work, so I decided to use plain JS rather than a framework.
@@ -137,8 +142,8 @@ HTML Implementation:
 
 - Guess History: I initially created an array and pushed new guesses into the guess history array. But then I thought it would be useful to have the results in addition to the guesses. I achieved this by creating a table template in the HTML, and appending a new row with guess, well-placed, and mis-placed results for each guess.
     - Used "aria-describedby" to support the screen reader for the table.
-
-
+ </br>
+ </br>
 
 Styling Implementation:
 - In my manager interview, we discussed flex-boxes and grid layout. This inspired me to try a grid layout.
