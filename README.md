@@ -30,21 +30,19 @@ The user is the game player, and there is one player against the program. I cons
 2. Enter their guess
 3. View the results (Well-Placed and Mis-Placed pieces)
 4. View any input errors
-5. View the history of their guesses and outcomes
-6. View whether they won, or exceeded their number of tries.
+5. View whether they won, or exceeded their number of tries.
+6. I later added the userView the history of their guesses and outcomes
 
-I later realized I should have considered accessibility as a requirement.
+7. I later realized I should have considered the user might require accessibility.
 
 
-7. The user should be able to hear the HTML elements.
-8. The user should be able to hear their guess, and the outcome results.
-9. The user should be able to hear if they won or lost.
+
     </br>
 
 ## Design Process / Requirements
-1. Create the JS file
-2. Create the HTML frontend
-3. Create the CSS styling
+1. JS file
+2. HTML frontend
+3. CSS styling
 
 
 Javascript Requirements:
@@ -67,17 +65,16 @@ Frontend Requirements:
     - Start the game: In node, the user types 'node mmind.js' in the terminal. I needed my HTML to be able to start the game.
         - Ideally, I thought it would be simpler for the user to add their guess and this would start the game instead of a separate start and submit buttons.
     
-    - The user would need to input their guess, and then need to be able to see the results (round number, well-placed, and mis-placed numbers). 
-        - Guess input and results output: My html would need to access the user's guess, and then access the JS variables and display them as the results
+    - The HTML would need to input the guess, direct it to the JS, and retrieve and display the results (round number, well-placed, and mis-placed numbers). 
         - HTML would need to read out the guess and output
 
-    - The user would need to see an error if their guess was not valid (4 digits), and still be able to access the guess form
+    - The HTML would need to display an error if their guess was not valid (4 digits), and still be able to access the guess form
         - Screen reader would need to read out error
 
-    - The user would need to see if they won (and ideally not be able to enter another guess)
+    - The HTML would need to indicate if they won (and ideally not be able to enter another guess)
         - Screen reader would need to indicate if they won
 
-    - The user would need to see if they exhausted all of their tries (game end)
+    - The HTML would need to see if they exhausted all of their tries (game end)
         - Screen reader would need to indicate if they lost
 
     - I thought it would be useful to see the history of guesses, but did not implement this initially. 
@@ -100,7 +97,6 @@ Frontend Requirements:
 ## Creating the Frontend / Implementation
  Javascript Implementation:
  I first created the javascript logic and ran in node to confirm the output, errors, messages.
- - This program will randomly generate the 4-unique digit secret. It will check if the input is valid (4 numbers), and will give an error if not. The previous guesses and results will be displayed in a table. There will be a message if the player guesses the secret, as well as if the player exceeds the number of tries.
 
 - The secret is set at 4 digits for simplicity. 
 - The maximum tries typically defaults to 10, but for ease-of-testing and demonstration, I've set it to 5.
@@ -124,7 +120,8 @@ HTML Implementation:
 - Guess input / See results: I added DOM element variables in my JS that would either grab input or inject the values into the HTML and therefore be viewable. For example,
     - const guessInput = document.getElementById("guess"); </br>
     </br>
-    - I added aria attributes to support the screen reader
+    - I added aria atributes to support the screen reader
+        -aria-live attributes to the dynamic content 
 
 - As I was trying to implement the event listener and DOM manipulation was not proceeding as I had hoped. I contacted my former classmate who loves to make games, to get insight and unstick. We also brainstormed on the usability (guess history), and player "hints" (future feature to color-code the results).
 
@@ -154,7 +151,16 @@ Styling Implementation:
 - The static lines in the main grid-container
     - The results into a nested container whose display switches to "none" when the user wins or exceeds the tries. 
     - The guess history is also in a nested container within the main one.
-- I spaced the lines by editing grid-row-start
+
+- Grid Wireframe
+<img 
+src="./ScreenCaps/Wireframe.png" 
+alt="Grid Wireframe" 
+title="Grid Wireframe"
+style="display: block; margin: 0 auto; max-width: 200px">
+</br>
+</br>
+
 
 Screen Captures:
 
@@ -200,14 +206,7 @@ style="display: block; margin: 0 auto; max-width: 200px">
 </br>
 </br>
 
-- Grid Wireframe
-<img 
-src="./ScreenCaps/Wireframe.png" 
-alt="Grid Wireframe" 
-title="Grid Wireframe"
-style="display: block; margin: 0 auto; max-width: 200px">
-</br>
-</br>
+
 
 
 ## Future Features
@@ -215,3 +214,6 @@ This was a fun project! I'd love to build on it and add more features:
 - Add color coding to the history of guesses indicating which pieces are Well-Placed vs. Mis-Placed.
 - Add remaining number of rounds
 - Add a tutorial / guided walk-through
+- Add button to start another game after winning/losing
+- Multiplayer
+- Mobile?
