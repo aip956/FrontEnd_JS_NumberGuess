@@ -24,7 +24,7 @@ This is mostly a sole project. However, I did seek advice from a former classmat
 ## Problem I'm Solving
 I needed to create an application to showcase HTML and CSS. I had previously created a C-language Mastermind project. I felt the game's player interaction would be a great project to add a frontend. I created this Mastermind app in Javascript, and added a frontend with HTML and CSS. 
     </br>
-## User I'm Trying to Solve Problems for
+## User Requirements
 The user is the game player, and there is one player against the program. I considered how a user might play the game; they would want to be able to:
 1. View the round number
 2. Enter their guess
@@ -120,8 +120,7 @@ HTML Implementation:
 - Guess input / See results: I added DOM element variables in my JS that would either grab input or inject the values into the HTML and therefore be viewable. For example,
     - const guessInput = document.getElementById("guess"); </br>
     </br>
-    - I added aria atributes to support the screen reader
-        -aria-live attributes to the dynamic content 
+    - I added aria atributes to support the screen reader (aria-live attributes to the dynamic content) 
 
 - As I was trying to implement the event listener and DOM manipulation was not proceeding as I had hoped. I contacted my former classmate who loves to make games, to get insight and unstick. We also brainstormed on the usability (guess history), and player "hints" (future feature to color-code the results).
 
